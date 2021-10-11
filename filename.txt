@@ -1,0 +1,9 @@
+alerts/blackbox-exporter.rules
+alerts/elasticsearch-exporter.rules
+alerts/apache-exporter.rules
+alerts/jvm-exporter.rules
+alerts/graylog.rules
+alerts/artifactory.rules
+alerts/etcd-exporter.rules
+alerts/coredns-exporter.rules
+alerts/cadvisor.rules
