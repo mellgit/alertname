@@ -1,0 +1,11 @@
+groups:
+- name: graylog_exporter
+  rules:
+  - alert: The journal contains > 5000 messages
+    expr: increase(org_graylog2_journal_entries_uncommitted[1m]) > 5000
+    for: 1m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Количество сообщений в журнале: {{ $value }} за 1m"
+      description: "VALUE = {{ $value }}"

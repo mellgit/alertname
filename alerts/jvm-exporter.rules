@@ -1,0 +1,11 @@
+groups:
+- name: jvm-exporter
+  rules:
+  - alert: JvmMemoryFillingUp
+    expr: jvm_memory_bytes_used / jvm_memory_bytes_max{area="heap"} > 0.9
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "JVM memory filling up, instance: {{ $labels.instance }} , pod: {{ $labels.pod }} , namespace: {{ $labels.namespace }}, value: {{ $value }}"
+      description: "JVM memory is filling up (> 90%)\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
